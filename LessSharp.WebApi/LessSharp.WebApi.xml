@@ -1,0 +1,375 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>LessSharp.WebApi</name>
+    </assembly>
+    <members>
+        <member name="T:LessSharp.WebApi.ApiGroup.ApiGroupAttribute">
+            <summary>
+            系统分组特性
+            </summary>
+        </member>
+        <member name="T:LessSharp.WebApi.ApiGroup.ApiGroupInfoAttribute">
+            <summary>
+            系统模块枚举注释
+            </summary>
+        </member>
+        <member name="T:LessSharp.WebApi.ApiGroup.ApiGroupNames">
+            <summary>
+            系统分组枚举值
+            </summary>
+        </member>
+        <member name="M:LessSharp.WebApi.AuthenticationSchemes.ApiFail.ApiFailHandler.HandleForbiddenAsync(Microsoft.AspNetCore.Authentication.AuthenticationProperties)">
+            <summary>
+            没通过授权
+            </summary>
+            <param name="properties"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LessSharp.WebApi.AuthenticationSchemes.ApiFail.ApiFailHandler.HandleChallengeAsync(Microsoft.AspNetCore.Authentication.AuthenticationProperties)">
+            <summary>
+            没有登录信息或登录信息失效
+            </summary>
+            <param name="properties"></param>
+            <returns></returns>
+        </member>
+        <member name="F:LessSharp.WebApi.AuthorizationPolicies.AuthorizationPolicyNames.QyWeixin">
+            <summary>
+            企业微信认证
+            </summary>
+        </member>
+        <member name="F:LessSharp.WebApi.AuthorizationPolicies.AuthorizationPolicyNames.Admin">
+            <summary>
+            管理员认证
+            </summary>
+        </member>
+        <member name="F:LessSharp.WebApi.AuthorizationPolicies.AuthorizationPolicyNames.Employee">
+            <summary>
+            员工认证
+            </summary>
+        </member>
+        <member name="F:LessSharp.WebApi.AuthorizationPolicies.AuthorizationPolicyNames.ApiPermission">
+            <summary>
+            接口访问权限
+            </summary>
+        </member>
+        <member name="T:LessSharp.WebApi.Controllers.AutoRouteControllerBase">
+            <summary>
+            继承此控制器后，会自动根据命名空间结构修改Route增加前缀
+            例如LessSharp.WebApi.Controllers.Sys.A.B命名空间下的UserController控制器，就会生成Sys/A/B/User这样的路由
+            如果派生控制器有自定义Route特性的话，就不会自动增加前缀
+            </summary>
+        </member>
+        <member name="M:LessSharp.WebApi.Controllers.AttachController.Upload(LessSharp.Dto.AttachUploadDto)">
+            <summary>
+            上传附件
+            </summary>
+            <param name="attachUploadDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LessSharp.WebApi.Controllers.AttachController.Download(System.Int32)">
+            <summary>
+            下载附件，无论什么类型都会弹出下载框
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LessSharp.WebApi.Controllers.AttachController.Load(System.Int32)">
+            <summary>
+            加载附件，如果是网页能处理的类型，不会弹出下载框
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LessSharp.WebApi.Controllers.AttachController.GetList(LessSharp.Dto.AttachQueryDto)">
+            <summary>
+            获取附件列表
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LessSharp.WebApi.Controllers.AttachController.DeleteById(System.Int32)">
+            <summary>
+            根据Id删除附件
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LessSharp.WebApi.Controllers.AuthController.Login(LessSharp.Dto.LoginDto)">
+            <summary>
+            登录获取认证Token
+            </summary>
+            <param name="loginDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LessSharp.WebApi.Controllers.AuthController.Logout">
+            <summary>
+            注销登录
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:LessSharp.WebApi.Controllers.AuthController.GetAuthInfo">
+            <summary>
+            获取登录认证用户信息及菜单权限信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:LessSharp.WebApi.Controllers.AuthController.RefreshToken(LessSharp.Dto.Sys.RefreshTokenDto)">
+            <summary>
+            刷新token
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:LessSharp.WebApi.Controllers.AuthController.ChangePassword(LessSharp.Dto.Common.ChangePasswordDto)">
+            <summary>
+            修改密码
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LessSharp.WebApi.Controllers.AuthController.GetLoginLog(LessSharp.Dto.Sys.UserLoginLogQueryDto)">
+            <summary>
+            获取用户登录日志分页列表
+            </summary>
+            <param name="queryDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LessSharp.WebApi.Controllers.CommonController.GetGuid">
+            <summary>
+            获取一个Guid值
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:LessSharp.WebApi.Controllers.CommonController.GetConfigList(LessSharp.Dto.Sys.ConfigQueryDto)">
+            <summary>
+            获取配置列表
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LessSharp.WebApi.Controllers.CommonController.GetConfigValueByKey(System.String)">
+            <summary>
+            根据Key值获取配置参数值
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LessSharp.WebApi.Controllers.QywxAuthController.GetQywxAuthUrl(System.String,System.String)">
+            <summary>
+            获取授权链接
+            </summary>
+            <param name="redirectUrl"></param>
+            <param name="state"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LessSharp.WebApi.Controllers.Sys.ApiController.GetPageList(LessSharp.Dto.Sys.ApiQueryDto)">
+            <summary>
+            获取接口分页列表
+            </summary>
+            <param name="queryDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LessSharp.WebApi.Controllers.Sys.ApiController.GetCommonPageList(LessSharp.Dto.Sys.ApiQueryDto)">
+            <summary>
+            获取接口公共分页列表
+            </summary>
+            <param name="queryDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LessSharp.WebApi.Controllers.Sys.ApiController.Save(LessSharp.Dto.Sys.ApiDto)">
+            <summary>
+            保存接口
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LessSharp.WebApi.Controllers.Sys.ApiController.DeleteById(System.Int32)">
+            <summary>
+            根据Id值进行删除接口
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LessSharp.WebApi.Controllers.Sys.ApiController.CheckExistByName(System.String,System.Int32)">
+            <summary>
+            检查是否存在重复的名称
+            </summary>
+            <param name="name"></param>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LessSharp.WebApi.Controllers.Sys.ApiController.CheckExistByPath(System.String,System.Int32)">
+            <summary>
+            检查是否存在重复的路径值
+            </summary>
+            <param name="path"></param>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LessSharp.WebApi.Controllers.Sys.ConfigController.GetList(LessSharp.Dto.Sys.ConfigQueryDto)">
+            <summary>
+            获取配置列表
+            </summary>
+            <param name="queryDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LessSharp.WebApi.Controllers.Sys.ConfigController.Save(System.Collections.Generic.List{LessSharp.Dto.Sys.ConfigDto})">
+            <summary>
+            保存配置
+            </summary>
+            <param name="dtos"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LessSharp.WebApi.Controllers.Sys.ConfigController.GetValueByKey(System.String)">
+            <summary>
+            根据Key值获取配置值
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LessSharp.WebApi.Controllers.Sys.MenuController.GetList(LessSharp.Dto.Sys.MenuQueryDto)">
+            <summary>
+            获取菜单列表
+            </summary>
+            <param name="queryDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LessSharp.WebApi.Controllers.Sys.MenuController.GetCommonList(LessSharp.Dto.Sys.MenuQueryDto)">
+            <summary>
+            获取菜单公共列表
+            </summary>
+            <param name="queryDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LessSharp.WebApi.Controllers.Sys.MenuController.Save(LessSharp.Dto.Sys.MenuEditDto)">
+            <summary>
+            保存菜单
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LessSharp.WebApi.Controllers.Sys.MenuController.DeleteById(System.Int32)">
+            <summary>
+            根据Id值进行删除菜单
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LessSharp.WebApi.Controllers.Sys.RoleController.GetPageList(LessSharp.Dto.Sys.RoleQueryDto)">
+            <summary>
+            获取角色分页列表
+            </summary>
+            <param name="queryDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LessSharp.WebApi.Controllers.Sys.RoleController.GetEditById(System.Int32)">
+            <summary>
+            根据Id获取修改实体
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LessSharp.WebApi.Controllers.Sys.RoleController.Save(LessSharp.Dto.Sys.RoleSaveDto)">
+            <summary>
+            保存角色信息
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LessSharp.WebApi.Controllers.Sys.RoleController.DeleteById(System.Int32)">
+            <summary>
+            根据Id值进行删除角色
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LessSharp.WebApi.Controllers.Sys.RoleController.GetRoleMenus(System.Int32)">
+            <summary>
+            根据角色Id获取角色全部菜单及权限，包含上级菜单
+            </summary>
+            <param name="roleId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LessSharp.WebApi.Controllers.Sys.TokenController.GetPageList(LessSharp.Dto.Sys.TokenQueryDto)">
+            <summary>
+            获取用户分页列表
+            </summary>
+            <param name="queryDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LessSharp.WebApi.Controllers.Sys.TokenController.DeleteById(System.String)">
+            <summary>
+            根据Id值进行删除Token记录
+            </summary>
+            <param name="accessToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LessSharp.WebApi.Controllers.Sys.TokenController.DisableToken(System.String)">
+            <summary>
+            禁用Token
+            </summary>
+            <param name="accessToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LessSharp.WebApi.Controllers.Sys.TokenController.ReloadDisabledToken">
+            <summary>
+            重置已禁用还未过期的Token到缓存中
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:LessSharp.WebApi.Controllers.Sys.UserController.GetPageList(LessSharp.Dto.Sys.UserQueryDto)">
+            <summary>
+            获取用户分页列表
+            </summary>
+            <param name="queryDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LessSharp.WebApi.Controllers.Sys.UserController.Save(LessSharp.Dto.Sys.UserSaveDto)">
+            <summary>
+            保存用户
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LessSharp.WebApi.Controllers.Sys.UserController.DeleteById(System.Int32)">
+            <summary>
+            根据Id值进行删除用户
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LessSharp.WebApi.Controllers.Sys.UserController.CheckExistByLoginName(System.String,System.Int32)">
+            <summary>
+            检查是否存在重复的登录名
+            </summary>
+            <param name="loginName"></param>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LessSharp.WebApi.Controllers.TestController.Test">
+            <summary>
+            测试
+            </summary>
+            <remarks>test</remarks>
+            <returns></returns>
+        </member>
+        <member name="F:LessSharp.WebApi.Conventions.AutoRouteControllerModelConvention._prefix">
+            <summary>
+            路径前缀
+            </summary>
+        </member>
+        <member name="M:LessSharp.WebApi.Program.BuildDependAssemblyKey">
+            <summary>
+            构建依赖程序集key值
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:LessSharp.WebApi.Program.GetDependAssemblyNames(System.Reflection.Assembly)">
+            <summary>
+            获取依赖程序集的名称数组
+            </summary>
+            <param name="assembly"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

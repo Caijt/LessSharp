@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AspectCore.Abstractions" Version="2.1.0" />
+    <PackageReference Include="AspectCore.Core" Version="2.1.0" />
+    <PackageReference Include="AutoMapper" Version="10.0.0" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Hosting.Abstractions" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="2.2.0" />
+    <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="6.7.1" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.7.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\LessSharp.ApiService\LessSharp.ApiService.csproj" />
+    <ProjectReference Include="..\LessSharp.Common\LessSharp.Common.csproj" />
+    <ProjectReference Include="..\LessSharp.Data\LessSharp.Data.csproj" />
+    <ProjectReference Include="..\LessSharp.Dto\LessSharp.Dto.csproj" />
+    <ProjectReference Include="..\LessSharp.Entity\LessSharp.Entity.csproj" />
+    <ProjectReference Include="..\LessSharp.MapperConfiguration\LessSharp.MapperConfiguration.csproj" />
+    <ProjectReference Include="..\LessSharp.Option\LessSharp.Option.csproj" />
+  </ItemGroup>
+
+</Project>

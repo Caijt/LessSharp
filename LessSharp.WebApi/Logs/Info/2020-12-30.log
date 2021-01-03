@@ -1,0 +1,24 @@
+
+＝＝＝＝＝＝＝＝＝＝                                   
+【日志级别】INFO                                    
+【记录时间】2020-12-30 19:54:25,656                                   
+【线程编号】[1]                                   
+【执行时间】[1633]毫秒                                   
+【信息的类】Microsoft.Hosting.Lifetime                                   
+【信息详情】Application started. Press Ctrl+C to shut down. 
+
+＝＝＝＝＝＝＝＝＝＝                                   
+【日志级别】INFO                                    
+【记录时间】2020-12-30 19:54:25,696                                   
+【线程编号】[1]                                   
+【执行时间】[1672]毫秒                                   
+【信息的类】Microsoft.Hosting.Lifetime                                   
+【信息详情】Hosting environment: Development 
+
+＝＝＝＝＝＝＝＝＝＝                                   
+【日志级别】INFO                                    
+【记录时间】2020-12-30 19:54:25,702                                   
+【线程编号】[1]                                   
+【执行时间】[1678]毫秒                                   
+【信息的类】Microsoft.Hosting.Lifetime                                   
+【信息详情】Content root path: E:\dev\LessSharp3\LessSharp.WebApi 

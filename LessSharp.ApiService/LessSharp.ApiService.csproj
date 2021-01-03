@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNet.WebApi.Client" Version="5.2.7" />
+    <PackageReference Include="Microsoft.AspNetCore.Hosting.Abstractions" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Extensions.Http" Version="3.1.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\LessSharp.Common\LessSharp.Common.csproj" />
+    <ProjectReference Include="..\LessSharp.Dto\LessSharp.Dto.csproj" />
+    <ProjectReference Include="..\LessSharp.Option\LessSharp.Option.csproj" />
+  </ItemGroup>
+
+</Project>
