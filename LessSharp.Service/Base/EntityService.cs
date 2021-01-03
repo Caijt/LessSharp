@@ -11,6 +11,7 @@ using Microsoft.EntityFrameworkCore.Internal;
 using LessSharp.Dto;
 using LessSharp.Data;
 using LessSharp.Entity;
+using LessSharp.Common;
 
 namespace LessSharp.Service
 {
@@ -141,10 +142,18 @@ namespace LessSharp.Service
                 if (!id.Equals(default(TId)))
                 {
                     oldEntity = QueryToSingleByIdAsync<TEntity>(DbQuery, id).Result;
-                    //如果是保存动作且数据库实体对象为空的话，那么就是创建
-                    if (forceCreateOrUpdate==null && oldEntity == null)
+                    if (oldEntity == null)
                     {
-                        isUpdate = false;
+                        if (forceCreateOrUpdate.HasValue)
+                        {
+                            //如果是更新动作且数据库实体对象为空的话，抛出业务异常
+                            throw new ApiFailException(ApiFailCode.OPERATION_FAIL, "查询不到更新的对应数据");
+                        }
+                        else
+                        {
+                            //如果是保存动作且数据库实体对象为空的话，那么就修改为创建动作
+                            isUpdate = false;
+                        }
                     }
                 }
             }
