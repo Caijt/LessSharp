@@ -141,6 +141,11 @@ namespace LessSharp.Service
                 if (!id.Equals(default(TId)))
                 {
                     oldEntity = QueryToSingleByIdAsync<TEntity>(DbQuery, id).Result;
+                    //如果是保存动作且数据库实体对象为空的话，那么就是创建
+                    if (forceCreateOrUpdate==null && oldEntity == null)
+                    {
+                        isUpdate = false;
+                    }
                 }
             }
             if (forceCreateOrUpdate == null)
