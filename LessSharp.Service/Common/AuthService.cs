@@ -68,7 +68,7 @@ namespace LessSharp.Service
             result.AccessExpiresIn = _jwtOption.AccessExpiresIn;
             result.RefreshToken = CreateRefreshToken(user.Id, loginDto.IsRemember);
             result.RefreshExpiresIn = loginDto.IsRemember ? _jwtOption.RememberRefreshExpiresIn : _jwtOption.RefreshExpiresIn;
-            await CreateTokenRecordAsync(result, user.Id);
+            await SaveTokenRecordAsync(result, user.Id);
             return result;
         }
 
@@ -82,13 +82,13 @@ namespace LessSharp.Service
         }
 
         /// <summary>
-        /// 创建Token记录
+        /// 保存Token记录
         /// </summary>
         /// <param name="loginResult"></param>
         /// <param name="userId"></param>
-        private async Task CreateTokenRecordAsync(LoginResultDto loginResult, int userId)
+        private async Task SaveTokenRecordAsync(LoginResultDto loginResult, int userId)
         {
-            await _tokenService.CreateAsync(new Dto.Sys.TokenDto
+            await _tokenService.SaveAsync(new Dto.Sys.TokenDto
             {
                 AccessToken = loginResult.AccessToken,
                 RefreshToken = loginResult.RefreshToken,
@@ -153,7 +153,7 @@ namespace LessSharp.Service
                 result.AccessExpiresIn = _jwtOption.AccessExpiresIn;
                 result.RefreshToken = CreateRefreshToken(user.Id, refreshTokenDto.IsRemember);
                 result.RefreshExpiresIn = refreshTokenDto.IsRemember ? _jwtOption.RememberRefreshExpiresIn : _jwtOption.RefreshExpiresIn;
-                await CreateTokenRecordAsync(result, user.Id);
+                await SaveTokenRecordAsync(result, user.Id);
                 await _tokenService.DisableTokenAsync(refreshTokenDto.AccessToken);
             }
             catch (SecurityTokenValidationException)
