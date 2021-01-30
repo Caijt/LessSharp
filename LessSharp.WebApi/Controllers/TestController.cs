@@ -53,13 +53,13 @@ namespace LessSharp.WebApi.Controllers
         private QQMapApiService _qqMapApiService;
         private readonly UserService _userService;
         private readonly ITest2 _test2;
-        private readonly RedisCacheHelper _cacheHelper;
+        private readonly ICacheHelper _cacheHelper;
         private readonly ConfigContext _configContext;
         private readonly AuthService _authService;
         private readonly ILogger<TestController> _logger;
         public TestController(IConfiguration configuration,
             AppDbContext appDbContext, IHttpClientFactory httpClientFactory,
-            UserService userService, RedisCacheHelper cacheHelper,
+            UserService userService, ICacheHelper cacheHelper,
             ConfigContext configContext,
             AuthService authService,
             ILogger<TestController> logger
@@ -195,7 +195,7 @@ namespace LessSharp.WebApi.Controllers
 
         public string Test15()
         {
-            _logger.LogError(new Exception("haha"),"test");
+            _logger.LogError(new Exception("haha"), "test");
             return "hehe";
         }
         public string Test16(string a)

@@ -2,10 +2,11 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UserSecretsId>afeb9585-07d7-4717-ab61-290ac470f987</UserSecretsId>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile>E:\dev\LessSharp3\LessSharp.WebApi\LessSharp.WebApi.xml</DocumentationFile>
+    <DocumentationFile>d:\Dev\LessSharp\LessSharp.WebApi\LessSharp.WebApi.xml</DocumentationFile>
     <NoWarn>1701;1702;1591;1587</NoWarn>
   </PropertyGroup>
 
@@ -34,8 +35,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="log4net.config" />
+    <None Include="log4net.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
+
+  <ProjectExtensions><VisualStudio><UserProperties appsettings_1json__JsonSchema="" /></VisualStudio></ProjectExtensions>
 
 
 </Project>

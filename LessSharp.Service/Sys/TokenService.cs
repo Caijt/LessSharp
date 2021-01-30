@@ -49,6 +49,10 @@ namespace LessSharp.Service.Sys
             if (queryDto.InCacheDisabled.HasValue)
             {
                 var disabledTokens = _cacheHelper.SetGet(DisabledTokenCacheKey);
+                if (disabledTokens == null)
+                {
+                    disabledTokens = new HashSet<string>();
+                }
                 if (queryDto.InCacheDisabled.Value)
                 {
                     query = query.Where(e => disabledTokens.Contains(e.AccessToken));
@@ -69,7 +73,6 @@ namespace LessSharp.Service.Sys
         /// <returns></returns>
         public async Task DisableTokenAsync(string accessToken)
         {
-
             await this.UpdateEntityAsync(new Token
             {
                 AccessToken = accessToken,
