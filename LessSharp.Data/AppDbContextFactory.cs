@@ -20,7 +20,11 @@ namespace LessSharp.Data
             builder.AddJsonFile(jsonPath);
             var configuration = builder.Build();
             var optionsBuilder = new DbContextOptionsBuilder<AppDbContext>();
-            optionsBuilder.UseSqlServer(configuration.GetConnectionString("SqlServer"));
+            //optionsBuilder.UseSqlServer(configuration.GetConnectionString("SqlServer"));
+            optionsBuilder.UseMySql(configuration.GetConnectionString("MySql"), b =>
+            {
+                //b.CharSet(new Pomelo.EntityFrameworkCore.MySql.Storage.CharSet("utf8", 1000));
+             });
             return new AppDbContext(optionsBuilder.Options);
         }
     }

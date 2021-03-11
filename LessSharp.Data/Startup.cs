@@ -18,11 +18,14 @@ namespace LessSharp.Data
             {
                 services.AddDbContext<AppDbContext>(o =>
                 {
-                    o.UseSqlServer(context.Configuration.GetConnectionString("SqlServer"), b =>
-                    {
-                        //2008数据库
-                        //b.UseRowNumberForPaging();
+                    o.UseMySql(context.Configuration.GetConnectionString("MySql"), b => { 
+
                     });
+                    //o.UseSqlServer(context.Configuration.GetConnectionString("SqlServer"), b =>
+                    //{
+                    //    //2008数据库
+                    //    //b.UseRowNumberForPaging();
+                    //});
                 });
             });
         }
