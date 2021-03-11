@@ -4,8 +4,9 @@ using System.Text;
 
 namespace LessSharp.Entity.Sys
 {
-    public class Token : IEntity, ICreateTime
+    public class Token : IEntity<int>, ICreateTime
     {
+        public int Id { get; set; }
         public string AccessToken { get; set; }
         public DateTime AccessExpire { get; set; }
         public int UserId { get; set; }

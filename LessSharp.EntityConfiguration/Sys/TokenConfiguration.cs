@@ -8,7 +8,7 @@ namespace LessSharp.EntityConfiguration.Sys
     {
         public void Configure(EntityTypeBuilder<Token> builder)
         {
-            builder.HasKey(e => e.AccessToken);
+            //builder.HasKey(e => e.AccessToken);
         }
     }
 }

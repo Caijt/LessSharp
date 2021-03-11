@@ -214,12 +214,12 @@ namespace LessSharp.EFHelper
 
         private void BtnSetup_Click(object sender, EventArgs e)
         {
-            TxtCmd.Text = "dotnet tool install --global dotnet-ef --version 3.1.5";
+            TxtCmd.Text = "dotnet tool install --global dotnet-ef";
         }
 
         private void BtnUpdate_Click(object sender, EventArgs e)
         {
-            TxtCmd.Text = "dotnet tool update--global dotnet-ef--version 3.1.5";
+            TxtCmd.Text = "dotnet tool update --global dotnet-ef";
         }
 
         private void BtnDataInfo_Click(object sender, EventArgs e)

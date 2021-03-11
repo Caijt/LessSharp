@@ -20,7 +20,7 @@ namespace LessSharp.Service.Sys
         {
             this.IdFieldExpression = e => e.Key;
         }
-        [CacheInterceptor]
+        [CacheInterceptor("ConfigList")]
         public override Task<List<ConfigDto>> GetListAsync(ConfigQueryDto queryDto)
         {
             return base.GetListAsync(queryDto);
@@ -31,7 +31,7 @@ namespace LessSharp.Service.Sys
         /// </summary>
         /// <param name="dtos"></param>
         /// <returns></returns>
-        [CacheDeleteInterceptor("Config")]
+        [CacheDeleteInterceptor("Config", "ConfigList")]
         public virtual async Task SaveAsync(List<ConfigDto> dtos)
         {
             this.AutoSaveChanges = false;
@@ -65,7 +65,7 @@ namespace LessSharp.Service.Sys
         /// <param name="key"></param>
         /// <returns></returns>
         [CacheInterceptor("Config")]
-        public virtual async  Task<string> GetValueByKey(string key)
+        public virtual async Task<string> GetValueByKey(string key)
         {
             return await this.DbQuery.Where(e => e.Key == Enum.Parse<ConfigKey>(key)).Select(e => e.Value).FirstOrDefaultAsync();
         }

@@ -6,6 +6,7 @@ using System.Text;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
+using Pomelo.EntityFrameworkCore.MySql.Storage;
 
 [assembly: HostingStartup(typeof(LessSharp.Data.Startup))]
 namespace LessSharp.Data
@@ -18,16 +19,26 @@ namespace LessSharp.Data
             {
                 services.AddDbContext<AppDbContext>(o =>
                 {
-                    o.UseMySql(context.Configuration.GetConnectionString("MySql"), b => { 
-
-                    });
-                    //o.UseSqlServer(context.Configuration.GetConnectionString("SqlServer"), b =>
-                    //{
-                    //    //2008数据库
-                    //    //b.UseRowNumberForPaging();
-                    //});
+                    this.DbContextConfig(o, context.Configuration);
                 });
             });
         }
+
+        public Action<DbContextOptionsBuilder, IConfiguration> DbContextConfig = (builder, configuration) =>
+         {
+             builder.UseMySql(configuration.GetConnectionString("Mysql"), b =>
+             {
+                 b.ServerVersion(ServerVersion.NullableGeneratedColumnsMySqlSupportVersionString);
+                 //b.CharSet(new CharSet("utf8mb4", 250));
+                 var charset = CharSet.Utf8Mb4;
+                 b.CharSet(new CharSet(charset.Name, 2));
+
+             });
+             //builder.UseSqlServer(configuration.GetConnectionString("SqlServer"), b =>
+             //{
+             //    //2008数据库
+             //    //b.UseRowNumberForPaging();
+             //});
+         };
     }
 }

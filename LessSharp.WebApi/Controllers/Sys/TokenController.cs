@@ -37,12 +37,12 @@ namespace LessSharp.WebApi.Controllers.Sys
         /// <summary>
         /// 根据Id值进行删除Token记录
         /// </summary>
-        /// <param name="accessToken"></param>
+        /// <param name="id"></param>
         /// <returns></returns>
         [HttpPost]
-        public async Task<ApiResultDto> DeleteById([FromBody] string accessToken)
+        public async Task<ApiResultDto> DeleteById([FromBody] int id)
         {
-            await _userService.DeleteByIdAsync(accessToken);
+            await _userService.DeleteByIdAsync(id);
             return ApiResultDto.Success();
         }
 

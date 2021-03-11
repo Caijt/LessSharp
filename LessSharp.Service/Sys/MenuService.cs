@@ -96,6 +96,7 @@ namespace LessSharp.Service.Sys
             {
                 throw new ApiFailException(ApiFailCode.OPERATION_FAIL, "此菜单下还有子菜单，无法删除！");
             }
+            DbContext.RemoveRange(DbContext.Set<MenuApi>().Where(e => e.MenuId == entity.Id));
             DbContext.RemoveRange(DbContext.Set<RoleMenu>().Where(e => e.MenuId == entity.Id));
         }
 
@@ -109,6 +110,6 @@ namespace LessSharp.Service.Sys
             return dto;
         }
 
-        
+
     }
 }

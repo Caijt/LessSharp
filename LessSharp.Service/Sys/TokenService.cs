@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 
 namespace LessSharp.Service.Sys
 {
-    public class TokenService : EntityService<TokenDto, TokenDto, TokenDto, TokenQueryDto, Token, string>
+    public class TokenService : EntityService<TokenDto, TokenDto, TokenDto, TokenQueryDto, Token, int>
     {
         private readonly AuthContext _authContext;
         private readonly ICacheHelper _cacheHelper;
@@ -23,7 +23,6 @@ namespace LessSharp.Service.Sys
         {
             _authContext = authContext;
             _cacheHelper = cacheHelper;
-            IdFieldExpression = e => e.AccessToken;
             IsFindOldEntity = true;
             OrderDefaultField = e => e.CreateTime;
         }
@@ -73,9 +72,14 @@ namespace LessSharp.Service.Sys
         /// <returns></returns>
         public async Task DisableTokenAsync(string accessToken)
         {
+            var token = await this.DbQuery.Where(e => e.AccessToken == accessToken).FirstOrDefaultAsync();
+            if (token == null)
+            {
+                return;
+            }
             await this.UpdateEntityAsync(new Token
             {
-                AccessToken = accessToken,
+                Id = token.Id,
                 IsDisabled = true
             }, new List<Expression<Func<Token, object>>> { e => e.IsDisabled }, false);
             _cacheHelper.SetAdd(DisabledTokenCacheKey, accessToken);
