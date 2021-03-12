@@ -6,6 +6,7 @@ namespace LessSharp.Dto.Sys
 {
     public class TokenDto
     {
+        public int Id { get; set; }
         public string AccessToken { get; set; }
         public DateTime AccessExpire { get; set; }
         public int UserId { get; set; }

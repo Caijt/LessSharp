@@ -297,13 +297,6 @@
             <param name="queryDto"></param>
             <returns></returns>
         </member>
-        <member name="M:LessSharp.WebApi.Controllers.Sys.TokenController.DeleteById(System.String)">
-            <summary>
-            根据Id值进行删除Token记录
-            </summary>
-            <param name="accessToken"></param>
-            <returns></returns>
-        </member>
         <member name="M:LessSharp.WebApi.Controllers.Sys.TokenController.DisableToken(System.String)">
             <summary>
             禁用Token

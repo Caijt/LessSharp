@@ -77,11 +77,13 @@ namespace LessSharp.Service.Sys
             {
                 return;
             }
-            await this.UpdateEntityAsync(new Token
-            {
-                Id = token.Id,
-                IsDisabled = true
-            }, new List<Expression<Func<Token, object>>> { e => e.IsDisabled }, false);
+            token.IsDisabled = true;
+            await this.DbContext.SaveChangesAsync();
+            //await this.UpdateEntityAsync(new Token
+            //{
+            //    Id = token.Id,
+            //    IsDisabled = true
+            //}, new List<Expression<Func<Token, object>>> { e => e.IsDisabled }, false);
             _cacheHelper.SetAdd(DisabledTokenCacheKey, accessToken);
         }
 
@@ -112,6 +114,16 @@ namespace LessSharp.Service.Sys
                 _cacheHelper.SetAdd(DisabledTokenCacheKey, tokens.ToArray());
             }
 
+        }
+
+        /// <summary>
+        /// 根据AccessToken获取Token记录
+        /// </summary>
+        /// <param name="accessToken"></param>
+        /// <returns></returns>
+        public async Task<TokenDto> GetByAccessTokenAsync(string accessToken)
+        {
+            return await QueryToSingleAsync<TokenDto>(this.DbQuery, e => e.AccessToken == accessToken);
         }
 
     }

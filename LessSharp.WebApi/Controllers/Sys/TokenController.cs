@@ -39,12 +39,12 @@ namespace LessSharp.WebApi.Controllers.Sys
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        [HttpPost]
-        public async Task<ApiResultDto> DeleteById([FromBody] int id)
-        {
-            await _userService.DeleteByIdAsync(id);
-            return ApiResultDto.Success();
-        }
+        //[HttpPost]
+        //public async Task<ApiResultDto> DeleteById([FromBody] int id)
+        //{
+        //    await _userService.DeleteByIdAsync(id);
+        //    return ApiResultDto.Success();
+        //}
 
         /// <summary>
         /// 禁用Token
@@ -52,7 +52,7 @@ namespace LessSharp.WebApi.Controllers.Sys
         /// <param name="accessToken"></param>
         /// <returns></returns>
         [HttpPost]
-        public async Task<ApiResultDto> DisableToken(string accessToken)
+        public async Task<ApiResultDto> DisableToken(string  accessToken)
         {
             await _userService.DisableTokenAsync(accessToken);
             return ApiResultDto.Success();

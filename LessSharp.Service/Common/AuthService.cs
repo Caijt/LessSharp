@@ -88,8 +88,10 @@ namespace LessSharp.Service
         /// <param name="userId"></param>
         private async Task SaveTokenRecordAsync(LoginResultDto loginResult, int userId)
         {
+            var token = _tokenService.GetByAccessTokenAsync(loginResult.AccessToken);
             await _tokenService.SaveAsync(new Dto.Sys.TokenDto
             {
+                Id = token == null ? 0 : token.Id,
                 AccessToken = loginResult.AccessToken,
                 RefreshToken = loginResult.RefreshToken,
                 UserId = userId,
