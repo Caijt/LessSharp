@@ -17,7 +17,7 @@ namespace LessSharp.WebApi.Controllers
 {
     [OpenApiTag("公共服务")]
     [ApiGroup(ApiGroupNames.Common)]
-    public class CommonController : AutoRouteControllerBase
+    public class CommonController : AutoRouteAuthorizeControllerBase
     {
         private readonly CommonService _commonService;
         private readonly ConfigService _configService;

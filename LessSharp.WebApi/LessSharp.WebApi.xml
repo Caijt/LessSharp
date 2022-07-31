@@ -53,7 +53,7 @@
             接口访问权限
             </summary>
         </member>
-        <member name="T:LessSharp.WebApi.Controllers.AutoRouteControllerBase">
+        <member name="T:LessSharp.WebApi.Controllers.AutoRouteAuthorizeControllerBase">
             <summary>
             继承此控制器后，会自动根据命名空间结构修改Route增加前缀
             例如LessSharp.WebApi.Controllers.Sys.A.B命名空间下的UserController控制器，就会生成Sys/A/B/User这样的路由
@@ -114,13 +114,13 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:LessSharp.WebApi.Controllers.AuthController.RefreshToken(LessSharp.Dto.Sys.RefreshTokenDto)">
+        <member name="M:LessSharp.WebApi.Controllers.AuthController.RefreshToken(LessSharp.Dto.RefreshTokenDto)">
             <summary>
             刷新token
             </summary>
             <returns></returns>
         </member>
-        <member name="M:LessSharp.WebApi.Controllers.AuthController.ChangePassword(LessSharp.Dto.Common.ChangePasswordDto)">
+        <member name="M:LessSharp.WebApi.Controllers.AuthController.ChangePassword(LessSharp.Dto.ChangePasswordDto)">
             <summary>
             修改密码
             </summary>
@@ -160,6 +160,200 @@
             </summary>
             <param name="redirectUrl"></param>
             <param name="state"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LessSharp.WebApi.Controllers.Crm.CustomerController.GetPageList(LessSharp.Dto.Crm.CustomerQueryDto)">
+            <summary>
+            获取客户分页列表数据
+            </summary>
+            <param name="queryDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LessSharp.WebApi.Controllers.Crm.CustomerController.GetDetail(System.Guid)">
+            <summary>
+            获取客户详情
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LessSharp.WebApi.Controllers.Crm.CustomerController.GetOldIcpDetail(System.Guid)">
+            <summary>
+            获取旧ICP客户详情
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LessSharp.WebApi.Controllers.Crm.CustomerController.SyncCustomersToEs(LessSharp.Dto.Crm.CustomerQueryDto)">
+            <summary>
+            同步客户到ES
+            </summary>
+            <param name="queryDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LessSharp.WebApi.Controllers.Crm.CustomerController.SyncCustomersToIcp(LessSharp.Dto.Crm.CustomerQueryDto)">
+            <summary>
+            同步客户到ICP
+            </summary>
+            <param name="queryDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LessSharp.WebApi.Controllers.Crm.CustomerController.RelieveMerge(System.Guid)">
+            <summary>
+            解除合并
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LessSharp.WebApi.Controllers.Crm.CustomerController.ResetNameUniqueValue(LessSharp.Dto.Crm.CustomerQueryDto)">
+            <summary>
+            重置客户名称唯一值
+            </summary>
+            <param name="queryDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LessSharp.WebApi.Controllers.Crm.CustomerController.GetExamineStatusExceptionList(LessSharp.Dto.Crm.CustomerQueryDto)">
+            <summary>
+            获取审批状态异常的客户列表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:LessSharp.WebApi.Controllers.Crm.CustomerController.DecodeCustomerLocalizationText(LessSharp.Dto.Crm.CustomerQueryDto)">
+            <summary>
+            反转义客户名称
+            </summary>
+            <param name="queryDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LessSharp.WebApi.Controllers.Crm.CustomerController.MergeCustomers(System.Collections.Generic.List{System.String})">
+            <summary>
+            合并客户
+            </summary>
+            <param name="nameUniqueValues"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LessSharp.WebApi.Controllers.Crm.CustomerController.MergeCustomersExportExcel(LessSharp.Service.Crm.MergeCustomerDto)">
+            <summary>
+            合并客户并导出Excel
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LessSharp.WebApi.Controllers.Crm.CustomerController.MoveAddressEmail">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:LessSharp.WebApi.Controllers.Crm.CustomerTitleController.GetPageList(LessSharp.Dto.Crm.CustomerTitleQueryDto)">
+            <summary>
+            获取旧ICP客户抬头分页列表数据
+            </summary>
+            <param name="queryDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LessSharp.WebApi.Controllers.Crm.CustomerTitleController.GetOldIcpPageList(LessSharp.Dto.Crm.OldIcpCustomerTitleQueryDto)">
+            <summary>
+            获取旧ICP客户抬头分页列表数据
+            </summary>
+            <param name="queryDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LessSharp.WebApi.Controllers.Fam.BillController.GetPageList(LessSharp.Dto.Fam.BillQueryDto)">
+            <summary>
+            获取账单分页数据
+            </summary>
+            <param name="queryDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LessSharp.WebApi.Controllers.Fam.BillController.GetDetailAsync(System.Guid)">
+            <summary>
+            获取账单详情
+            </summary>
+            <param name="Id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LessSharp.WebApi.Controllers.Fam.BillController.SyncCurrencyBillToEs(LessSharp.Dto.Fam.BillQueryDto)">
+            <summary>
+            同步币种账单到ES
+            </summary>
+            <param name="queryDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LessSharp.WebApi.Controllers.Fam.BillController.SyncChargeBillToEs(LessSharp.Dto.Fam.BillQueryDto)">
+            <summary>
+            同步费用账单到ES
+            </summary>
+            <param name="queryDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LessSharp.WebApi.Controllers.Fam.BillController.GetCdcPageList(LessSharp.Dto.Fam.BillQueryDto)">
+            <summary>
+            获取CDC数据
+            </summary>
+            <param name="queryDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LessSharp.WebApi.Controllers.Fam.BillController.GetChargeCdcPageList(LessSharp.Dto.Fam.BillChargeQueryDto)">
+            <summary>
+            获取费用CDC数据
+            </summary>
+            <param name="queryDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LessSharp.WebApi.Controllers.Fam.InvoiceController.GetPageList(LessSharp.Dto.Fam.InvoiceQueryDto)">
+            <summary>
+            获取发票分页数据
+            </summary>
+            <param name="queryDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LessSharp.WebApi.Controllers.Fam.InvoiceController.GetDetailAsync(System.Guid)">
+            <summary>
+            获取发票详情
+            </summary>
+            <param name="Id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LessSharp.WebApi.Controllers.Fam.InvoiceController.UpdateInvoiceFromNuoNuo(System.Collections.Generic.List{System.Guid})">
+            <summary>
+            从诺诺同步状态
+            </summary>
+            <param name="invoiceIds"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LessSharp.WebApi.Controllers.Fam.ReleaseOrderController.SyncReleaseBillToEs(System.Collections.Generic.List{System.Guid})">
+            <summary>
+            同步放单到ES
+            </summary>
+            <param name="shipmentIds"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LessSharp.WebApi.Controllers.Fcm.ShipmentController.GetPageList(LessSharp.Dto.Fcm.ShipmentQueryDto)">
+            <summary>
+            获取分页数据
+            </summary>
+            <param name="queryDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LessSharp.WebApi.Controllers.Fcm.ShipmentServiceController.GetPageList(LessSharp.Dto.Fcm.ShipmentServiceQueryDto)">
+            <summary>
+            获取分页数据
+            </summary>
+            <param name="queryDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LessSharp.WebApi.Controllers.Sso.UserController.GetPageList(LessSharp.Dto.Sso.UserQueryDto)">
+            <summary>
+            获取用户分页数据
+            </summary>
+            <param name="queryDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LessSharp.WebApi.Controllers.Sso.UserController.GetDetail(System.Int64)">
+            <summary>
+            获取用户详情
+            </summary>
+            <param name="Id"></param>
             <returns></returns>
         </member>
         <member name="M:LessSharp.WebApi.Controllers.Sys.ApiController.GetPageList(LessSharp.Dto.Sys.ApiQueryDto)">
@@ -241,7 +435,7 @@
             <param name="queryDto"></param>
             <returns></returns>
         </member>
-        <member name="M:LessSharp.WebApi.Controllers.Sys.MenuController.Save(LessSharp.Dto.Sys.MenuEditDto)">
+        <member name="M:LessSharp.WebApi.Controllers.Sys.MenuController.Save(LessSharp.Dto.Sys.MenuSaveDto)">
             <summary>
             保存菜单
             </summary>
@@ -253,6 +447,12 @@
             根据Id值进行删除菜单
             </summary>
             <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LessSharp.WebApi.Controllers.Sys.MenuController.GetMenuPermissionList">
+            <summary>
+            获取菜单及权限
+            </summary>
             <returns></returns>
         </member>
         <member name="M:LessSharp.WebApi.Controllers.Sys.RoleController.GetPageList(LessSharp.Dto.Sys.RoleQueryDto)">
@@ -283,7 +483,7 @@
             <param name="id"></param>
             <returns></returns>
         </member>
-        <member name="M:LessSharp.WebApi.Controllers.Sys.RoleController.GetRoleMenus(System.Int32)">
+        <member name="M:LessSharp.WebApi.Controllers.Sys.RoleController.GetRoleMenuPermissionList(System.Int32)">
             <summary>
             根据角色Id获取角色全部菜单及权限，包含上级菜单
             </summary>
@@ -344,6 +544,34 @@
             测试
             </summary>
             <remarks>test</remarks>
+            <returns></returns>
+        </member>
+        <member name="M:LessSharp.WebApi.Controllers.Wf.WorkflowController.GetPageList(LessSharp.Dto.Wf.WorkflowQueryDto)">
+            <summary>
+            获取工作流分页列表数据
+            </summary>
+            <param name="queryDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LessSharp.WebApi.Controllers.Wf.WorkflowController.GetDetail(System.Guid)">
+            <summary>
+            获取工作流详情
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LessSharp.WebApi.Controllers.Wf.WorkflowController.SyncToEs(LessSharp.Dto.Wf.WorkflowQueryDto)">
+            <summary>
+            同步工作流到ES
+            </summary>
+            <param name="queryDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LessSharp.WebApi.Controllers.Wf.WorkflowController.ReturnTask(LessSharp.Dto.Wf.ReturnTaskDto)">
+            <summary>
+            退回节点
+            </summary>
+            <param name="dto"></param>
             <returns></returns>
         </member>
         <member name="F:LessSharp.WebApi.Conventions.AutoRouteControllerModelConvention._prefix">

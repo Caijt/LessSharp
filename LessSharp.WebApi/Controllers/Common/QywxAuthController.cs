@@ -14,7 +14,7 @@ namespace LessSharp.WebApi.Controllers
 {
     [OpenApiTag("企业微信认证授权")]
     [ApiGroup(ApiGroupNames.Common)]
-    public class QywxAuthController : AutoRouteControllerBase
+    public class QywxAuthController : AutoRouteAuthorizeControllerBase
     {
         private readonly QywxAuthService _qywxAuthService;
         public QywxAuthController(QywxAuthService qywxAuthService)

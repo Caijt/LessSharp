@@ -34,6 +34,7 @@ namespace LessSharp.WebApi
                 {
                     webBuilder.UseSetting(WebHostDefaults.HostingStartupAssembliesKey, dependAssemblyKey);
                 }
+                webBuilder.UseUrls("http://*:5000");
             })
             //ÓÃAspectCoreÌæ»»Ä¬ÈÏµÄIOCÈÝÆ÷
             .UseServiceProviderFactory(new DynamicProxyServiceProviderFactory());

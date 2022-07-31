@@ -14,7 +14,8 @@ namespace LessSharp.WebApi.Controllers
     /// </summary>
     [Route("[controller]/[action]")]
     [ApiController]
-    public abstract class AutoRouteControllerBase : ControllerBase
+    [Authorize]
+    public abstract class AutoRouteAuthorizeControllerBase : ControllerBase
     {
     }
 }

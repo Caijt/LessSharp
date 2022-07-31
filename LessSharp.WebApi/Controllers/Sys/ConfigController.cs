@@ -18,7 +18,7 @@ namespace LessSharp.WebApi.Controllers.Sys
     [OpenApiTag("配置管理")]
     [ApiGroup(ApiGroupNames.Sys)]
     [Authorize(AuthorizationPolicies.AuthorizationPolicyNames.ApiPermission)]
-    public class ConfigController : AutoRouteControllerBase
+    public class ConfigController : AutoRouteAuthorizeControllerBase
     {
         private readonly ConfigService _configService;
         public ConfigController(ConfigService configService)

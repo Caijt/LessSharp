@@ -39,6 +39,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 
 namespace LessSharp.WebApi.Controllers
 {
+
     [OpenApiTag("测试", Description = "测试用的")]
     [Route("api/[controller]/[action]")]
     [ApiController]
@@ -204,7 +205,38 @@ namespace LessSharp.WebApi.Controllers
             return "hehe";
         }
 
-        //public LoginResultDto Test15(string accessToken, string refreshToken)
+        public string Test17(int input)
+        {
+            List<int> intList = new List<int>();
+            intList.Add(1);
+            intList.Add(2);
+            for (int i = 2; i < input; i++)
+            {
+                int temp1 = i - 1;
+                int temp2 = i - 2;
+                int temp3 = intList[temp1] + intList[temp2];
+                intList.Add(temp3);
+            }
+            return intList[input - 1].ToString();
+        }
+
+        public string Test18()
+        {
+            static string test19()
+            {
+                return "";
+            }
+            string test20()
+            {
+                return "";
+            }
+            test20();
+            var a = test19();
+            var o = new { name = "123" };
+            return "hello";
+        }
+
+        //public LoginResultDto Test15(sAtring accessToken, string refreshToken)
         //{
         //    //var res = _authService.RefreshToken(accessToken, refreshToken);
         //    return res;

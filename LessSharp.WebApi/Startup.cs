@@ -60,7 +60,7 @@ namespace LessSharp.WebApi
             services.Configure<QyWeixinOption>(Configuration.GetSection("QyWeixin"));
             services.Configure<KeyOption>("QQMap", Configuration.GetSection("QQMap"));
             #endregion
-            #region 身份验证服务
+             #region 身份验证服务
             services.AddAuthentication(o =>
             {
                 o.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -140,7 +140,7 @@ namespace LessSharp.WebApi
             services.AddControllers(o =>
             {
                 //添加全局授权过滤器
-                o.Filters.Add(new AuthorizeFilter());
+                //o.Filters.Add(new AuthorizeFilter());
                 //o.Filters.Add(new AuthorizeFilter(nameof(ApiPermissionRequirement)));
                 //添加约定器，对ApiConventionController的派生类添加路由前缀
                 o.Conventions.Add(new AutoRouteControllerModelConvention(Configuration.GetValue<string>("RoutePrefix")));

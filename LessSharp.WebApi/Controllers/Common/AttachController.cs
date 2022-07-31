@@ -14,7 +14,7 @@ namespace LessSharp.WebApi.Controllers
 {
     [OpenApiTag("附件管理")]
     [ApiGroup(ApiGroupNames.Common)]
-    public class AttachController : AutoRouteControllerBase
+    public class AttachController : AutoRouteAuthorizeControllerBase
     {
         private readonly AttachService _attachService;
         public AttachController(AttachService attachService)

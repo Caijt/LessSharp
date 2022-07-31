@@ -17,7 +17,7 @@ namespace LessSharp.WebApi.Controllers.Sys
     [OpenApiTag("菜单管理")]
     [ApiGroup(ApiGroupNames.Sys)]
     [Authorize(AuthorizationPolicyNames.ApiPermission)]
-    public class MenuController : AutoRouteControllerBase
+    public class MenuController : AutoRouteAuthorizeControllerBase
     {
         private readonly MenuService _menuService;
         public MenuController(MenuService menuService)

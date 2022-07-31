@@ -22,7 +22,7 @@ namespace LessSharp.WebApi.Conventions
         public void Apply(ControllerModel controller)
         {
             //判断是否是ApiConventionController的派生控制器
-            if (controller.ControllerType.BaseType != typeof(AutoRouteControllerBase))
+            if (controller.ControllerType.BaseType != typeof(AutoRouteAuthorizeControllerBase))
             {
                 return;
             }

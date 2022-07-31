@@ -18,7 +18,7 @@ namespace LessSharp.WebApi.Controllers
 {
     [OpenApiTag("登录授权")]
     [ApiGroup(ApiGroupNames.Common)]
-    public class AuthController : AutoRouteControllerBase
+    public class AuthController : AutoRouteAuthorizeControllerBase
     {
         private readonly AuthService _authService;
         private readonly UserLoginLogService _userLoginLogService;

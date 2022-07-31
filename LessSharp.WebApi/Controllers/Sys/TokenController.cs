@@ -17,7 +17,7 @@ namespace LessSharp.WebApi.Controllers.Sys
     [OpenApiTag("Token管理")]
     [ApiGroup(ApiGroupNames.Sys)]
     [Authorize(AuthorizationPolicies.AuthorizationPolicyNames.ApiPermission)]
-    public class TokenController : AutoRouteControllerBase
+    public class TokenController : AutoRouteAuthorizeControllerBase
     {
         private readonly TokenService _userService;
         public TokenController(TokenService sysUserService)

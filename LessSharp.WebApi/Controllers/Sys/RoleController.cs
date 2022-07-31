@@ -14,7 +14,7 @@ namespace LessSharp.WebApi.Controllers.Sys
 {
     [ApiGroup(ApiGroupNames.Sys)]
     [OpenApiTag("角色管理")]
-    public class RoleController : AutoRouteControllerBase
+    public class RoleController : AutoRouteAuthorizeControllerBase
     {
         private readonly RoleService _roleService;
         public RoleController(RoleService roleService)

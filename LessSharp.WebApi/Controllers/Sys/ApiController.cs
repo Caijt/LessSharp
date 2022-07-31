@@ -17,7 +17,7 @@ namespace LessSharp.WebApi.Controllers.Sys
     [OpenApiTag("接口管理")]
     [ApiGroup(ApiGroupNames.Sys)]
     [Authorize(AuthorizationPolicyNames.ApiPermission)]
-    public class ApiController : AutoRouteControllerBase
+    public class ApiController : AutoRouteAuthorizeControllerBase
     {
         private readonly LessSharp.Service.Sys.ApiService _apiService;
         public ApiController(LessSharp.Service.Sys.ApiService apiService)

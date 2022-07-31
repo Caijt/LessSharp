@@ -17,7 +17,7 @@ namespace LessSharp.WebApi.Controllers.Sys
     [OpenApiTag("用户管理")]
     [ApiGroup(ApiGroupNames.Sys)]
     [Authorize(AuthorizationPolicies.AuthorizationPolicyNames.ApiPermission)]
-    public class UserController : AutoRouteControllerBase
+    public class UserController : AutoRouteAuthorizeControllerBase
     {
         private readonly UserService _userService;
         public UserController(UserService sysUserService)
